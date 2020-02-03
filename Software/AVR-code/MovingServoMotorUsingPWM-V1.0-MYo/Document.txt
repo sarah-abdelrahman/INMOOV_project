@@ -1,0 +1,41 @@
+
+Author : Mina Yousry  
+Version : 1.0        
+Date : 3/2/2020	      
+
+/*##############################################################################################################################
+																																	
+-Servo Run With Input Signal (Duty Cycle) each change in this duty cycle will turn the servo in certain postion 				
+																																
+-Duty Cycle is the Time of HIGH Signal To LOW signal In One Cycel (EX :25%  means it 25% of time is HIGH)						
+																																
+-So to Control Servo motor we have to enter certain Freq. in the signal pin                                                     
+																																
+-we can use timer that count until certain point change PORT Value From HIGH to LOW and vice Versa                              
+																																
+-You have first to enable timer on the AVR then Choose PWM Mode for the timer                                                   
+																																
+-then choose when the timer Will toggle the PORT Value                                                                          
+																																
+-Timer Can Trigger Interrupt when Overflow for example timer count from 1 to 255 in 8 bit reg. it will overflow at count 255    
+																																
+-so thier is relation between the number of counts and how fast it counted (Freq)                                               
+																																
+-we can also choose value of timer if it reached to this value also fire interrupt (on compare match)
+     
+-usually all servos period time (time for one cycle) is 20ms 
+
+-in this 20ms we change the HIGH and LOW values to move the servo to Certain degree (180-90..)  
+
+-Registers needed By using TIMER1-16Bit In AVR : 
+	
+	TCCR1B 	----------> Timer Control Register for Timer One Page 108 In datasheet
+ 	
+	TCCR1A 	---------->Timer Control Register for Timer One Page 105 In datasheet
+	
+	OCR1A	----------> Pin Output of channel A for timer 1 (only timer one has two channel as it is the only 16 bit timer in AVR32) 
+	
+	ICR1	----------> Value to set in this register at which the timer copmare if match this value will toggle pin OCR1A
+                                                                                                                      
+																																
+##############################################################################################################################*/
